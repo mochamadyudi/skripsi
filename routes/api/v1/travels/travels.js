@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const {Role} = require('./../../../../middleware/authRole');
 const auth = require("./../../../../middleware/auth");
 const Travels = require('./../../../../models/Travels')
-const Uploads = require('./../../../../services/fileUpload').single('image');
+const upload = require('./../../../../services/fileUpload').single('image');
 const role ={
     admin: 'admin',
     villa: 'villa',
@@ -17,7 +17,7 @@ router.post("/upload", auth,Role(role.admin), (req,res)=>{
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() })
     }
-    Uploads(req,res,async (err)=>{
+    upload(req,res,async ()=>{
         const {
             travelName,
             harga,

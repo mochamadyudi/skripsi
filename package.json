@@ -15,8 +15,8 @@
   "author": "Vodonesia",
   "license": "MIT",
   "engines": {
-    "npm": "6.x",
-    "node": "12.x"
+    "npm": "6.x.x",
+    "node": "12.x.x"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

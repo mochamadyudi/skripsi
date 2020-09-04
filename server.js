@@ -9,8 +9,6 @@ const app = express();
 connectDB();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}))
-app.use(express.json())
 // for parsing application/xwww-
 app.use(express.urlencoded({ extended: true }));
 //form-urlencoded
@@ -18,13 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ extended: true }));
 
 app.use((req, res, next) => {
-  const allowedOrigin = [
-      'http://localhost:3000',
-      'http://localhost:3001',
-      'vodonesia.herokuapp.com',
-      'vodonesia.id'
-  ];
-  res.header("Access-Control-Allow-Origin", process.env.ORIGIN || allowedOrigin);
+  res.header("Access-Control-Allow-Origin", process.env.ORIGIN || '*');
   res.header("Access-Control-Allow-Methods", 'GET, POST, PUT, DELETE');
   res.header("Access-Control-Allow-Credentials", 'true');
   next();

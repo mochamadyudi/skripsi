@@ -14,10 +14,6 @@
   "keywords": [],
   "author": "Vodonesia",
   "license": "MIT",
-  "engines": {
-    "npm": "6.x.x",
-    "node": "12.x.x"
-  },
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "aws-sdk": "^2.663.0",

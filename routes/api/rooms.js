@@ -1,12 +1,9 @@
 const express = require("express");
-// const multiparty = require('multi')
-// const fs = require('fs');
 const router = express.Router();
 const upload = require('../../services/fileUpload').single('image');
 const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 const {Role} = require('../../middleware/authRole');
-// const fileUpload =require('express-fileupload')
 const role ={
     admin: 'admin',
     villa: 'villa',

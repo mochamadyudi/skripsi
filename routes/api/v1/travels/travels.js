@@ -46,20 +46,22 @@ router.post("/upload", auth,Role(role.admin), (req,res)=>{
         if (jalan)             roomFields.address.jalan = jalan;
         if (desa)        roomFields.address.desa = desa;
 
-        const newImage = ({
-            url:req.file.location,
-            name:req.file.key
-        });
-        const newTravel = new Travels({
-            user: req.user.id,
-            travelName:travelName,
-            images:newImage,
-            harga:harga,
-            address:roomFields.address,
-            fasilitas:roomFields.fasilitas
-        });
-        const travel = await newTravel.save();
-        await res.json(travel);
+        if (req.file !== null){
+            const newImage = ({
+                url:req.file.location,
+                name:req.file.key
+            });
+            const newTravel = new Travels({
+                user: req.user.id,
+                travelName:travelName,
+                images:newImage,
+                harga:harga,
+                address:roomFields.address,
+                fasilitas:roomFields.fasilitas
+            });
+            const travel = await newTravel.save();
+            await res.json(travel);
+        }
 
     })
 });
